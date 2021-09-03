@@ -56,5 +56,27 @@
 <li>Estimate của <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.0037em;">α</span></span></span></span></span> và <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathnormal" style="margin-right: 0.05278em;">β</span></span></span></span></span> là a và b</li>
 </ul>
 <h4 id="tiêu-chuẩn-tìm-tham-số-tốt-nhất">Tiêu chuẩn tìm tham số tốt nhất</h4>
-<p><img src="https://github.com/chauitvn/chaunguyen.github.io/blob/efe860a05a2bdf45f5f480e7802159f7420c76a0/simple_linear_regression/tieuchuantimthamso_example.png" alt="enter image description here"></p>
+<p><img src="https://github.com/chauitvn/chaunguyen.github.io/blob/efe860a05a2bdf45f5f480e7802159f7420c76a0/simple_linear_regression/tieuchuantimthamso_example.png" alt="enter image description here"><br>
+tìm công thức để tính a và b sao cho tổng <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">d^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span> là nhỏ nhất =&gt; Least square method = Bình phương nhỏ nhất</p>
+<p>###Python Packages to Perform Regressions</p>
+<ul>
+<li>
+<p>In statsmodels:</p>
+<p>import statsmodels.api as sm<br>
+sm.OLS(y,x).fit()</p>
+</li>
+<li>
+<p>In numpy:</p>
+<p>np.polyfit(x,y, deg =1)</p>
+</li>
+<li>
+<p>In Pandas:</p>
+<p>pd.ols(y, x)</p>
+</li>
+<li>
+<p>In scipy:</p>
+<p>from scipy import stats<br>
+stats.linregression(x,y)</p>
+</li>
+</ul>
 
