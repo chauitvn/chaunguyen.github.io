@@ -105,5 +105,9 @@ print(results.summary())</p>
 </ul>
 <p>the first argument of the statsmodel regression is the series that represents the dependent variable y, and the next argument contains the independent variable or variables.</p>
 <p>In this case, the dependent variable is the <strong>R200 returns</strong> and the independent variables are the constant and <strong>SPX returns</strong>.</p>
-<p>The method “fit” runs the regression and results are saved</p>
+<p>The method “fit” runs the regression and results are saved in a class instance called results.</p>
+<ul>
+<li>Regression output:<br>
+<img src="https://github.com/chauitvn/chaunguyen.github.io/blob/7cd15923a7ae00a72dd9cc1434697a7c1fccfcac/simple_linear_regression/Regression_Output.png" alt="enter image description here"></li>
+</ul>
 
