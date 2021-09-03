@@ -58,7 +58,7 @@
 <h4 id="tiêu-chuẩn-tìm-tham-số-tốt-nhất">Tiêu chuẩn tìm tham số tốt nhất</h4>
 <p><img src="https://github.com/chauitvn/chaunguyen.github.io/blob/efe860a05a2bdf45f5f480e7802159f7420c76a0/simple_linear_regression/tieuchuantimthamso_example.png" alt="enter image description here"><br>
 tìm công thức để tính a và b sao cho tổng <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">d^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span> là nhỏ nhất =&gt; Least square method = Bình phương nhỏ nhất</p>
-<p>###Python Packages to Perform Regressions</p>
+<h3 id="python-packages-to-perform-regressions">Python Packages to Perform Regressions</h3>
 <ul>
 <li>
 <p>In statsmodels:</p>
@@ -79,4 +79,31 @@ sm.OLS(y,x).fit()</p>
 stats.linregression(x,y)</p>
 </li>
 </ul>
+<h3 id="ví-dụ-regression-of-small-cap-returns-on-large-cap">Ví dụ: Regression of Small Cap Returns on Large Cap</h3>
+<ul>
+<li>
+<p>import the statsmodels module</p>
+<p>import statsmodels.api as sm</p>
+</li>
+<li>
+<p>as before, compute percentage changes in both series</p>
+<p>df[“SPX_Ret”] = df[‘SPX_Prices’].ptc_change()<br>
+df[“R2000_Ret”] = df[‘R2000_Prices’].ptc_change()</p>
+</li>
+<li>
+<p>add a constant to the DataFrame for the regression intercept</p>
+<p>df = sm.add_constant(df)</p>
+</li>
+<li>
+<p>Notice that the first row of return is NaN =&gt; we should to delete them through .dropna() function.</p>
+</li>
+<li>
+<p>Run the regression</p>
+<p>results = sm.OLS(df[‘R2000_Ret’], df[[‘const’, ‘SPX_Ret’]]).fit()<br>
+print(results.summary())</p>
+</li>
+</ul>
+<p>the first argument of the statsmodel regression is the series that represents the dependent variable y, and the next argument contains the independent variable or variables.</p>
+<p>In this case, the dependent variable is the <strong>R200 returns</strong> and the independent variables are the constant and <strong>SPX returns</strong>.</p>
+<p>The method “fit” runs the regression and results are saved</p>
 
