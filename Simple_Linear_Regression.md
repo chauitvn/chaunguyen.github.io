@@ -110,4 +110,41 @@ print(results.summary())</p>
 <li>Regression output:<br>
 <img src="https://github.com/chauitvn/chaunguyen.github.io/blob/7cd15923a7ae00a72dd9cc1434697a7c1fccfcac/simple_linear_regression/Regression_Output.png" alt="enter image description here"></li>
 </ul>
+<p>There are several important items that we need to focus on:</p>
+<ul>
+<li><strong>The coefficent (coef)</strong>: 1.1412 is the slope of the regression, which is also refferred to as <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathnormal" style="margin-right: 0.05278em;">β</span></span></span></span></span>.</li>
+<li>The coefficent (coef) above that is the intercept, which is very close to zero.</li>
+</ul>
+<p>you can also pull out individual items from results, like:</p>
+<ul>
+<li>Intercept in <em>results.param[0]</em></li>
+<li>Slope in <em>results.param[1]</em></li>
+</ul>
+<p>Another statistic to take note of is the R-Squared of 0.753<br>
+<img src="https://github.com/chauitvn/chaunguyen.github.io/blob/2415e5c8dcd181e74d4d33f7bb53dec7b0a718d2/simple_linear_regression/Regression_R_Square_Output.png" alt="enter image description here"></p>
+<h3 id="relationship-between-r-square-and-correlation">Relationship between R-Square and Correlation</h3>
+<p>The R-squared also measures how well the linear regression line fits the data.<br>
+[corr(x,y)]<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class=""></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> = R<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class=""></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> (or R-Squared)</p>
+<p>sign(corr) = sign(regression slope)</p>
+<p>if the regression line is positively sloped, the correlation is positive and if the regression line is negatively sloped, the correlation is negative.</p>
+<ul>
+<li>In last example:
+<ul>
+<li>R-squared = 0.753,</li>
+<li>the slope of the regression was positive, so the correlation is then positive the</li>
+<li>correlation  = +<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>0.753</mn></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{0.753}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.13278em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.90722em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord">0.753</span></span></span><span class="" style="top: -2.86722em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.13278em;"><span class=""></span></span></span></span></span></span></span></span></span> = 0.868</li>
+</ul>
+</li>
+</ul>
 
