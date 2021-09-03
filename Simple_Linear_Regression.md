@@ -12,4 +12,5 @@
 <li>Điều chỉnh các yếu tố nhiễu</li>
 <li>Dự đoán: ví dụ cho mỗi giá trị X làm sao chúng ta có thể dự đoán được giá trị Y.</li>
 </ol>
+<h2 id="ý-tưởng-đằng-sau-mô-hình-hồi-quy-tuyến-tính">Ý tưởng đằng sau mô hình hồi quy tuyến tính</h2>
 
