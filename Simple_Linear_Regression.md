@@ -110,4 +110,126 @@ print(results.summary())</p>
 <li>Regression output:<br>
 <img src="https://github.com/chauitvn/chaunguyen.github.io/blob/7cd15923a7ae00a72dd9cc1434697a7c1fccfcac/simple_linear_regression/Regression_Output.png" alt="enter image description here"></li>
 </ul>
+<p>There are several important items that we need to focus on:</p>
+<ul>
+<li><strong>The coefficent (coef)</strong>: 1.1412 is the slope of the regression, which is also refferred to as <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathnormal" style="margin-right: 0.05278em;">β</span></span></span></span></span>.</li>
+<li>The coefficent (coef) above that is the intercept, which is very close to zero.</li>
+</ul>
+<p>you can also pull out individual items from results, like:</p>
+<ul>
+<li>Intercept in <em>results.param[0]</em></li>
+<li>Slope in <em>results.param[1]</em></li>
+</ul>
+<p>Another statistic to take note of is the R-Squared of 0.753<br>
+<img src="https://github.com/chauitvn/chaunguyen.github.io/blob/2415e5c8dcd181e74d4d33f7bb53dec7b0a718d2/simple_linear_regression/Regression_R_Square_Output.png" alt="enter image description here"></p>
+<h3 id="relationship-between-r-square-and-correlation">Relationship between R-Square and Correlation</h3>
+<p>The R-squared also measures how well the linear regression line fits the data.<br>
+[corr(x,y)]<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class=""></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> = R<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class=""></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> (or R-Squared)</p>
+<p>sign(corr) = sign(regression slope)</p>
+<p>if the regression line is positively sloped, the correlation is positive and if the regression line is negatively sloped, the correlation is negative.</p>
+<ul>
+<li>In last example:
+<ul>
+<li>R-squared = 0.753,</li>
+<li>the slope of the regression was positive, so the correlation is then positive the</li>
+<li>correlation  = +<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>0.753</mn></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{0.753}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.13278em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.90722em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord">0.753</span></span></span><span class="" style="top: -2.86722em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.13278em;"><span class=""></span></span></span></span></span></span></span></span></span> = 0.868</li>
+</ul>
+</li>
+</ul>
+<h3 id="auto-correlation">Auto-correlation</h3>
+<p><strong>What is Auto-correlation?</strong><br>
+auto-correlation is the correlation of a single time series with a lagged copy of itself.</p>
+
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>Lagged Series</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>20</td>
+<td>15</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table><p>Often, when we refer to a series’s auto-correlation, we mean the “lag-one” auto-correlation. so when using daily data, the auto-correlation would be the correlation of the series with the same series lagged by one day.</p>
+<p><strong>Interpretation of Auto-Correlation</strong><br>
+what does it mean when a series has a positive or negative auto-correlation?<br>
+with financial time series, <em><strong>when returns have a negative auto-correlation, we say it is "mean reverting"</strong></em> đảo ngược trung bình.<br>
+alternatively, <em><strong>if a series has positive auto-correlation, we say it is "trend-following"</strong></em> theo xu hướng.</p>
+<p><strong>Traders use auto-correlation to make money</strong></p>
+<p>lest you think these concepts of auto-correlation are purely theoretical, they are actually used on Wall Street to make money. Many hedge fund strategies are only slightly more complex versions of mean reversion and momentum strategies. <em><strong>Since stocks have historically had negative auto-correlation over horizons of about a week, one popular strategy is to buy stocks that have gone up</strong></em>. For other assets like commodities and currencies, they have historically had positive autocorrelation over horizons of several months, <em><strong>so the typical hedge fund strategy there is to buy commodities that have gone up in the last several months and sell those commodities that have gone down</strong></em>.</p>
+<p><strong>Example of positive auto-correlation: exchange rates</strong></p>
+<ul>
+<li>
+<p>Use daily exchange rates in DataFrame “df” from FRED</p>
+</li>
+<li>
+<p>Convert index to datetime</p>
+<p>#convert index to datetime<br>
+df.index =pd.to_datetime(df.index)<br>
+#downsample from daily to monthly data<br>
+df = df.resample(rule=‘M’, how=‘last’)<br>
+#compute returns from prices<br>
+df[‘Return’] = df[‘Price’].pct_change()<br>
+#compute auto-correlation<br>
+autocorrelation = df[‘Return’].autocorr()<br>
+print(“the autocorrelation is:”, autocorrelation)</p>
+</li>
+</ul>
+<p>Example 2: <strong>A Popular Strategy Using Autocorrelation</strong><br>
+One puzzling anomaly with stocks is that investors tend to overreact to news. Following large jumps, either up or down, stock prices tend to reverse. This is described as mean reversion in stock prices: prices tend to bounce back, or revert, towards previous levels after large moves, which are observed over time horizons of about a week. A more mathematical way to describe mean reversion is to say that stock returns are negatively autocorrelated.<br>
+This simple idea is actually the basis for a popular hedge fund strategy. If you’re curious to learn more about this hedge fund strategy (although it’s not necessary reading for anything else later in the course)<br>
+You’ll look at the autocorrelation of weekly returns of MSFT stock from 2012 to 2017. You’ll start with a DataFrame <code>MSFT</code> of daily prices. You should use the <code>.resample()</code> method to get weekly prices and then compute returns from prices. Use the pandas method <code>.autocorr()</code> to get the autocorrelation and show that the autocorrelation is negative. Note that the <code>.autocorr()</code> method only works on Series, not DataFrames (even DataFrames with one column), so you will have to select the column in the DataFrame.</p>
+<pre><code># Convert the daily data to weekly data
+MSFT = MSFT.resample(rule='M',  how='last')
+# Compute the percentage change of prices
+returns = MSFT.pct_change()
+# Compute and print the autocorrelation of returns
+autocorrelation = returns["Adj Close"].autocorr()
+print("The autocorrelation of weekly returns is %4.2f" %(autocorrelation))
+</code></pre>
+<p>Example 3: <strong>Are Interest Rates Autocorrelated?</strong><br>
+When you look at daily changes in interest rates, the autocorrelation is close to zero. However, if you resample the data and look at annual changes, the autocorrelation is negative. This implies that while short term changes in interest rates may be uncorrelated, long term changes in interest rates are negatively autocorrelated. A daily move up or down in interest rates is unlikely to tell you anything about interest rates tomorrow, but a move in interest rates over a year can tell you something about where interest rates are going over the next year. And this makes some economic sense: over long horizons, when interest rates go up, the economy tends to slow down, which consequently causes interest rates to fall, and vice versa.<br>
+The DataFrame <code>daily_rates</code> contains daily data of 10-year interest rates from 1962 to 2017.</p>
+<pre><code># Compute the daily change in interest rates
+daily_diff = daily_rates.diff()
+# Compute and print the autocorrelation of daily changes
+autocorrelation_daily = daily_diff['US10Y'].autocorr()
+print("The autocorrelation of daily interest rate changes is %4.2f" %(autocorrelation_daily))
+# Convert the daily data to annual data
+yearly_rates = daily_rates.resample(rule='A').last()
+# Repeat above for annual data
+yearly_diff = yearly_rates.diff()
+autocorrelation_yearly = yearly_diff['US10Y'].autocorr()
+print("The autocorrelation of annual interest rate changes is %4.2f" %(autocorrelation_yearly))
+</code></pre>
 
