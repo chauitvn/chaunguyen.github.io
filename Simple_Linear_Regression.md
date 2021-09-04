@@ -147,4 +147,65 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 </ul>
 </li>
 </ul>
+<h3 id="auto-correlation">Auto-correlation</h3>
+<p><strong>What is Auto-correlation?</strong><br>
+auto-correlation is the correlation of a single time series with a lagged copy of itself.</p>
+
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>Lagged Series</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>20</td>
+<td>15</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table><p>Often, when we refer to a series’s auto-correlation, we mean the “lag-one” auto-correlation. so when using daily data, the auto-correlation would be the correlation of the series with the same series lagged by one day.</p>
+<p><strong>Interpretation of Auto-Correlation</strong><br>
+what does it mean when a series has a positive or negative auto-correlation?<br>
+with financial time series, <em><strong>when returns have a negative auto-correlation, we say it is "mean reverting"</strong></em> đảo ngược trung bình.<br>
+alternatively, <em><strong>if a series has positive auto-correlation, we say it is "trend-following"</strong></em> theo xu hướng.</p>
+<p><strong>Traders use auto-correlation to make money</strong></p>
+<p>lest you think these concepts of auto-correlation are purely theoretical, they are actually used on Wall Street to make money. Many hedge fund strategies are only slightly more complex versions of mean reversion and momentum strategies. <em><strong>Since stocks have historically had negative auto-correlation over horizons of about a week, one popular strategy is to buy stocks that have gone up</strong></em>. For other assets like commodities and currencies, they have historically had positive autocorrelation over horizons of several months, <em><strong>so the typical hedge fund strategy there is to buy commodities that have gone up in the last several months and sell those commodities that have gone down</strong></em>.</p>
+<p><strong>Example of positive auto-correlation: exchange rates</strong></p>
+<ul>
+<li>
+<p>Use daily exchange rates in DataFrame “df” from FRED</p>
+</li>
+<li>
+<p>Convert index to datetime</p>
+<p>#convert index to datetime<br>
+df.index =pd.to_datetime(df.index)<br>
+#downsample from daily to monthly data<br>
+df = df.resample(rule=‘M’, how=‘last’)<br>
+#compute returns from prices<br>
+df[‘Return’] = df[‘Price’].pct_change()<br>
+#compute auto-correlation<br>
+autocorrelation = df[‘Return’].autocorr()<br>
+print(“the autocorrelation is:”, autocorrelation)</p>
+</li>
+<li>
+<p>sgds</p>
+</li>
+</ul>
 
