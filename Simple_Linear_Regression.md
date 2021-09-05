@@ -232,4 +232,103 @@ yearly_diff = yearly_rates.diff()
 autocorrelation_yearly = yearly_diff['US10Y'].autocorr()
 print("The autocorrelation of annual interest rate changes is %4.2f" %(autocorrelation_yearly))
 </code></pre>
+<h3 id="auto-correlation-funcion">Auto-correlation funcion</h3>
+<p><strong>Plot ACF in Python</strong></p>
+<ul>
+<li>
+<p>import module:</p>
+<p>from statsmodels.graphics.tsaplots import plot_acf</p>
+</li>
+<li>
+<p>Plot the ACF<br>
+plot_acf(x, lags=20, alpha =0.05)</p>
+</li>
+</ul>
+<p>There are several plot arguments that are:<br>
+<strong>lags</strong>: how many lags of the correlation function will be plotted<br>
+<strong>alpha</strong>: sets the width of the confidence interval, which is discussed on the next slide.<br>
+<img src="https://github.com/chauitvn/chaunguyen.github.io/blob/eff5f742035b3eaf6cc73b0c69e17bd9534d1603/simple_linear_regression/ACF_plot.png" alt="enter image description here"></p>
+<ul>
+<li>here is an ACF plot that contains confidence intervals for each lags, which is the blue region in the figure.</li>
+</ul>
+<p><strong>Confidence Interval of ACF</strong></p>
+<ul>
+<li>Argument alpha sets the width of confidence interval</li>
+<li>example alpha = 0.05, that means that if the true auto-correlation at that lag is zero, there is only a 5% change the sample auto-correlation will fall outside that window (blue band)</li>
+<li>you will get a wider confidence interval if you set alpha lower, or if you have fewer observations. An approximation to the width of the 95% confidence intervals, if you make some simplifying assumptions, is plus or minus 2 over the square root of the number of observations in your series. +/- 2/<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>N</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.113335em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.926665em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord mathnormal" style="margin-right: 0.10903em;">N</span></span></span><span class="" style="top: -2.88666em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.113335em;"><span class=""></span></span></span></span></span></span></span></span></span>. if you don’t want no bands on plot, set alpha =1</li>
+</ul>
+<p><strong>ACF Values instead of Plot</strong><br>
+Besides plotting the ACF, you can also extract its numerical values using a similar Python function.</p>
+<pre><code>from statsmodels.tsa.stattools import acf
+print(acf(x))
+</code></pre>
+<p>Example 1:  <strong>Taxing Exercise: Compute the ACF</strong><br>
+In the last chapter, you computed autocorrelations with one lag. Often we are interested in seeing the autocorrelation over many lags. The quarterly earnings for H&amp;R Block (ticker symbol HRB) is plotted on the right, and you can see the extreme cyclicality of its earnings. A vast majority of its earnings occurs in the quarter that taxes are due.</p>
+<p>You will compute the array of autocorrelations for the H&amp;R Block quarterly earnings that is pre-loaded in the DataFrame <code>HRB</code>. Then, plot the autocorrelation function using the <code>plot_acf</code> module. This plot shows what the autocorrelation function looks like for cyclical earnings data. The ACF at <code>lag=0</code> is always one, of course. In the next exercise, you will learn about the confidence interval for the ACF, but for now, suppress the confidence interval by setting <code>alpha=1</code>.</p>
+<pre><code># Import the acf module and the plot_acf module from statsmodels
+from  statsmodels.tsa.stattools
+import  acf
+from  statsmodels.graphics.tsaplots
+import  plot_acf
+# Compute the acf array of HRB
+acf_array = acf(HRB)
+print(acf_array)
+# Plot the acf function
+plot_acf(HRB,  alpha=1)
+plt.show()
+</code></pre>
+<p>Exercise 2: <strong>Are We Confident This Stock is Mean Reverting?</strong><br>
+In the last chapter, you saw that the autocorrelation of MSFT’s weekly stock returns was -0.16. That autocorrelation seems large, but is it statistically significant? In other words, can you say that there is less than a 5% chance that we would observe such a large negative autocorrelation if the true autocorrelation were really zero? And are there any autocorrelations at other lags that are significantly different from zero?</p>
+<p>Even if the true autocorrelations were zero at all lags, in a finite sample of returns you won’t see the estimate of the autocorrelations exactly zero. In fact, the standard deviation of the sample autocorrelation is 1/<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>N</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.113335em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.926665em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord mathnormal" style="margin-right: 0.10903em;">N</span></span></span><span class="" style="top: -2.88666em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.113335em;"><span class=""></span></span></span></span></span></span></span></span></span> where N is the number of observations, so if N=100 , for example, the standard deviation of ACF is 0.1, and since 95% of a normal curve is between +1.96 and -1.96 standard deviations from the mean, the 95% confidence interval is +/- 1.96/<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>N</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.113335em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.926665em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord mathnormal" style="margin-right: 0.10903em;">N</span></span></span><span class="" style="top: -2.88666em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.113335em;"><span class=""></span></span></span></span></span></span></span></span></span>. this approximation only holds when the true auto-correlation are all zero.</p>
+<p>You will compute the actual and approximate confidence interval for the ACF, and compare it to the lag-one autocorrelation of -0.16 from the last chapter. The weekly returns of Microsoft is pre-loaded in a DataFrame called <code>returns</code>.</p>
+<pre><code># Import the plot_acf module from statsmodels and sqrt from math
+from  statsmodels.graphics.tsaplots
+import  plot_acf
+from  math  import  sqrt
+# Compute and print the autocorrelation of MSFT weekly returns
+autocorrelation = returns['Adj Close'].autocorr()
+print("The autocorrelation of weekly MSFT returns is %4.2f" %(autocorrelation))
+# Find the number of observations by taking the length of the returns DataFrame
+nobs = len(returns)
+# Compute the approximate confidence interval
+conf = 1.96/sqrt(nobs)
+print("The approximate confidence interval is +/- %4.2f" %(conf))
+# Plot the autocorrelation function with 95% confidence intervals and 20 lags using plot_acf
+plot_acf(returns,  alpha=0.05,  lags = 20)
+plt.show()
+</code></pre>
+<h3 id="white-noise">White Noise</h3>
 
