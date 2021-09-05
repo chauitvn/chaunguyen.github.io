@@ -331,4 +331,13 @@ plot_acf(returns,  alpha=0.05,  lags = 20)
 plt.show()
 </code></pre>
 <h3 id="white-noise">White Noise</h3>
+<p><strong>What is White Noise</strong><br>
+a general definition is that it is a series with mean that is constant with time, a variance that is also constant with time, and zero autocorrelation at all lags.</p>
+<p>there are several special cases of White Noise:<br>
+if the data is white noise but also has a normal or Gaussian, distribution then it is called Gaussian White Noise.</p>
+<p>it is very easy to generate white noise</p>
+<pre><code>import numpy as np
+noise = np.random.normal(loc=0, scale=1, size = 500)
+</code></pre>
+<p>this is the lot of White Noise</p>
 
